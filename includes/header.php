@@ -22,7 +22,7 @@ integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkz
 		<div id='nav'> 
 			<div  class="col-xs-12 col-centered text-center"> 
 				
-					<a href="index.php"><button type="button" class="btn btn-warning">Нчало</button></a> 
+					<a href="index.php"><button type="button" class="btn btn-warning">Начало</button></a> 
 					<a href="about.php"><button type="button" class="btn btn-warning">За проекта</button></a> 
 					<a href="admin.php"><button type="button" class="btn btn-warning">Контакти </button></a> 
 					

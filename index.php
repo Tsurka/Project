@@ -39,7 +39,7 @@ $language=$_GET["lang"];
 	<p>Игра за губене на време и още нещо.... </p>            
 	<img src="img/foto3.png" class="img-rounded" alt="foto3" width="350" height="250"> 
 	<div  id='hello' class="col-lg-6 col-lg-offset-3 text-center"> 
- 		<label for='login'> Моля попълнете  за да продължите : </label> 
+ 		<label for='login'> Моля попълнете, за да продължите : </label> 
 		<?php 
 		echo "<p><form action='' method='post'>"; 
 		input('login','text','user_name',' потребителско име...'); 
