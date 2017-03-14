@@ -1,5 +1,7 @@
 <?php 
+
 include_once('includes/conection_users.php');
+session_start();
 echo' 	<form action="" method="get">
 				<input type="radio" name="lang" value="bg" >AБВГ.<img src="img/bg.png"  alt="bg" > 
 				<input type="radio" name="lang" value="en">ABCD.<img src="img/en.png"  alt="en" > 
@@ -7,9 +9,11 @@ echo' 	<form action="" method="get">
 					</form>';
 if (!empty($_GET['lang'])){
 	$language=$_GET['lang'];
+$_SESSION["language"]="$language";
 }
 else{
 	$language="bg";
+	$_SESSION["language"]="bg";
 }
  if ($language == "en") {
 	include_once('includes/header_EN.php');
