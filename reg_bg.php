@@ -32,9 +32,13 @@ include_once('includes/conection_users.php');
 			<?php
 				$username = $_POST['username'];
 				$password = $_POST['password'];
-				//$password = md5($password);
-				$insert_query = 	"INSERT INTO users (username, password) 
-							VALUES ('$username', '$password')";
+				$password = md5($password);
+				//check for valid input 
+				$read_query = "SELECT * FROM users WHERE `date_deleted` IS NULL and `username`='$username'"; //data_deleting-грешно date_deleted
+				$result = mysqli_query($conn, $read_query); 
+				$check_name=mysqli_num_rows($result);
+				if ($check_name==0 && $username!==''){
+				$insert_query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";			
 				//or $result
 				$insert_result= mysqli_query($conn, $insert_query);
 				if ($insert_result) {
@@ -42,6 +46,9 @@ include_once('includes/conection_users.php');
 				echo "<a href='index1.php'>Log In</a>";
 				}else{
 				echo "Неуспешно добавяне на потребител в базата данни! Моля опитайте отново!";
+				}
+				}else{
+				echo "Неуспешно добавяне на потребител в базата данни! Моля опитайте с друго име !";
 				}
 			}
 			?>

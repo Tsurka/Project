@@ -1,7 +1,8 @@
 <?php 
 require_once('includes/functions.php');
-session_start();
-$_SESSION["language"]="en";
+//session_start();
+//$language=$_GET['lang'];
+//$_SESSION["language"]="$language";
 //$language=$_SESSION["language"];
 ?>
  <!DOCTYPE html> 
