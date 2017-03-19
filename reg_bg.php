@@ -4,32 +4,28 @@ include_once('includes/conection_users.php');
 	
 	if(empty($_POST['submit'])){
 		?>	
-		<div class="container text-center" >
-				<h2>БЕСЕНИЦА</h2>
-				<p>РЕГИСТРАЦИЯ</p>            
-				<!--<img src="img/foto2.jpg" class="img-rounded" alt="foto1" width="300" height="150"> -->
-				<div  id='hello' class="col-lg-6 col-lg-offset-3 text-center"> 
-					<label for='login'> Моля попълнете име на играча  : </label> 
-					<?php	
-					echo "<p><form action='reg_bg.php' method='post'>"; 
-						input('Име','text','username',' потребителско име...'); 
-						input('Парола','text','password',' парола'); 
-					
-					echo "</p>"; 
-					echo "<p>"; 
-						submit('Регистрирай','btn btn-info'); 
-					echo "</p></form>"; 
+		<img id="frame_home" src="css/img/frame_home.jpg" alt="frame">
+		<div class="container" > 
+			<div  id='hello' > 
+				<label for='login'> Моля попълнете име на играча  : </label> 
+				<?php	
+				echo "<p><form action='reg_bg.php' method='post'>"; 
+						input('Име ','text','username',' потребителско име...'); 
+						input('Парола ','text','password',' парола'); 
+				echo "</p>"; 
+				echo "<p>"; 
+					submit('Регистрирай','btn btn-info'); 
+				echo "</p></form>"; 
 				?>
-				</div> 
-			</div>
+			</div> 
+		</div>
 		<?php	
 	}else
-		{
-			?>
-			<div class="container text-center" >
-			<img src="img/foto3.png" class="img-rounded" alt="foto3" width="350" height="250"> 
-			<div  id='hello' class="col-lg-6 col-lg-offset-3 text-center"> 
-			<?php
+		{ ?>
+			<img id="frame_home" src="css/img/frame_home.jpg" alt="frame">
+			<div class="container" > 
+			<div  id='hello' > 
+				<?php
 				$username = $_POST['username'];
 				$password = $_POST['password'];
 				$password = md5($password);
@@ -50,10 +46,10 @@ include_once('includes/conection_users.php');
 				}else{
 				echo "Неуспешно добавяне на потребител в базата данни! Моля опитайте с друго име !";
 				}
+				?>
+			</div> 
+			</div>
+			<?php	
 			}
-			?>
-			</div>
-			</div>
-			
-	<?php		
+		
  include_once('includes/footer.php');?>

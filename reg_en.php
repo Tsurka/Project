@@ -4,41 +4,37 @@ include_once('includes/conection_users.php');
 	
 	if(empty($_POST['submit'])){
 		?>	
-		<div class="container text-center" >
-				<h2>HANGMAN</h2>
-				<p>REGISTRATION</p>            
-				<!--<img src="img/foto2.jpg" class="img-rounded" alt="foto1" width="300" height="150"> -->
-				<div  id='hello' class="col-lg-6 col-lg-offset-3 text-center"> 
-					<label for='login'> Please fill in the name of the player  : </label> 
-					<?php	
-					echo "<p><form action='reg_en.php' method='post'>"; 
-						input('User name','text','username',' name'); 
-						input('PASSWORD','text','password',' password'); 
-					
-					echo "</p>"; 
-					echo "<p>"; 
-						submit('SUBMIT','btn btn-info'); 
-					echo "</p></form>"; 
+		<img id="frame_home" src="css/img/frame_home.jpg" alt="frame">
+		<div class="container" > 
+			<div  id='hello' > 
+				<label for='login'> Please fill in the name of the player  : </label> 
+				<?php	
+				echo "<p><form action='reg_en.php' method='post'>"; 
+						input('Name ','text','username',' username...'); 
+						input('Password ','text','password',' password'); 
+				echo "</p>"; 
+				echo "<p>"; 
+					submit('SUBMIT','btn btn-info'); 
+				echo "</p></form>"; 
 				?>
-				</div> 
-			</div>
+			</div> 
+		</div>
 		<?php	
 	}else
-		{
-			?>
-			<div class="container text-center" >
-			<img src="img/foto3.png" class="img-rounded" alt="foto3" width="350" height="250"> 
-			<div  id='hello' class="col-lg-6 col-lg-offset-3 text-center"> 
-			<?php
+		{ ?>
+			<img id="frame_home" src="css/img/frame_home.jpg" alt="frame">
+			<div class="container" > 
+			<div  id='hello' > 
+				<?php
 				$username = $_POST['username'];
 				$password = $_POST['password'];
 				$password = md5($password);
 				//check for valid input 
 				$read_query = "SELECT * FROM users WHERE `date_deleted` IS NULL and `username`='$username'"; //data_deleting-грешно date_deleted
-				$result = mysqli_query($conn, $read_query);
+				$result = mysqli_query($conn, $read_query); 
 				$check_name=mysqli_num_rows($result);
 				if ($check_name==0 && $username!==''){
-				$insert_query = 	"INSERT INTO users (username, password) VALUES ('$username', '$password')";			
+				$insert_query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";			
 				//or $result
 				$insert_result= mysqli_query($conn, $insert_query);
 				if ($insert_result) {
@@ -48,12 +44,12 @@ include_once('includes/conection_users.php');
 				echo "Failed to add user ! Please, try again!";
 				}
 				}else{
-				echo " Failed to add user ! Please, try new username!";
+				echo "Failed to add user ! Please, try new username!";
 				}
+				?>
+			</div> 
+			</div>
+			<?php	
 			}
-			?>
-			</div>
-			</div>
-			
-	<?php		
+		
  include_once('includes/footer.php');?>
