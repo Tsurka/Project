@@ -1,6 +1,6 @@
 
 <footer id='foot'>
-	<p> &copy DANI  2017 </p>
+	<p> &copy TheEvilHangman-2017 </p>
 </footer>
 </body>
 </html>
