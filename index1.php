@@ -28,7 +28,7 @@ echo '</form>';
 		<?php 
 		echo "<p><form action='' method='post'>"; 
 		input('User name ','text','username','Enter user name...'); 
-		input('Password ','text','password',' Password....'); 
+		input('Password ','password','password',' Password....'); 
 		echo "</p>"; 
 		echo "<p>"; 
 		submit('LOG IN','btn btn-info'); 
@@ -60,7 +60,7 @@ echo '</form>';
 		<?php 
 		echo "<p><form action='' method='post'>"; 
 		input('Име ','text','username',' потребителско име...'); 
-		input('Парола ','text','password',' парола'); 
+		input('Парола ','password','password',' парола'); 
 		echo "</p>"; 
 		echo "<p>"; 
 	 	submit('Вход','btn btn-info'); 

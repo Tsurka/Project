@@ -1,6 +1,7 @@
  <!DOCTYPE html> 
  <html lang="bg"> 
  <head><link rel="stylesheet" type="text/css" href="css/style.css"></head>
+ <body style="height: 800px;">
 <?php
 error_reporting(E_ALL & ~E_NOTICE);
 //start game 
@@ -16,18 +17,19 @@ session_start();
 //*******************************************************
 $language=$_SESSION["language"];
 $username=$_SESSION["username"];
+$cat=$_GET['cat'];
 include_once('includes/conection_users.php');
 $read_query = "SELECT * FROM `users` ORDER BY `users`.`score` DESC  ";//sort users by score -high to low
 $result = mysqli_query($conn, $read_query); 
  if (mysqli_num_rows($result) >0) { 
-			/*$n=1;
-			echo "<div id='score_tb' style ='position: absolute; top: 600px; left: 0%; height:50px; overflow: hidden; overflow-y:scroll'>";
+			$n=1;
 			//start -table for view users and score ...**********************************
+			echo "<div id='score_tb' style ='position: absolute; top: 610px; left: 66%; height:100px; overflow: hidden; overflow-y:scroll'>";
 			echo "<table border=1>"; 
-			echo "<tr><td class='white'>N</td>
-			<td class='white'>Username</td>
-			<td class='white'>SCORE</td>
-			<td class='white'>GAMES</td>
+			echo "<tr><td class='white'> № </td>
+			<td class='white'> Username </td>
+			<td class='white'> SCORE </td>
+			<td class='white'> GAMES </td>
 			</tr>"; 
 		while($row = mysqli_fetch_assoc($result)){ 
 				echo "<tr>";
@@ -51,11 +53,11 @@ $result = mysqli_query($conn, $read_query);
 		} 
 			echo "</table>"; 
 			echo "</div>";
-			//end  -table for view users and score ...***************************************  */
-			echo "<p id='logout'><a href='logout.php'>Log Out</a></p>";//log out the GAME
+			//end  -table for view users and score ...*************************************** 
+		echo "<p id='logout'><a href='logout.php'>Log Out</a></p>";//log out the GAME
 	}
 	
-	//******************************************************game choise category EN*****************
+	//******************************************************game choise of category*****************
 
 if ($language == "en") {
 	include_once('includes/header_EN.php');
@@ -72,11 +74,11 @@ if ($language == "en") {
 <form action="#" method="post">
 		<div class="category" style="text-align:center">			
 			<ul id = "list">
-			<li><a href='game.php?cat=1' class="myButton">Countries</a></li>
-			<li><a href='game.php?cat=2' class="myButton">Cities</a></li>
-			<li><a href='game.php?cat=3' class="myButton">Animals</a></li>
-			<li><a href='game.php?cat=4'class="myButton">Famous people</a></li>
-			<li><a href='game.php?cat=5' class="myButton">Star Wars</a></li>
+			<li><a href='hangman.php?cat=1' class="myButton">Countries</a></li>
+			<li><a href='hangman.php?cat=2' class="myButton">Cities</a></li>
+			<li><a href='hangman.php?cat=3' class="myButton">Animals</a></li>
+			<li><a href='hangman.php?cat=4'class="myButton">Famous people</a></li>
+			<li><a href='hangman.php?cat=5' class="myButton">Star Wars</a></li>
 			</ul>
 		</div>		
 	</form>
@@ -110,12 +112,13 @@ if ($language == "en") {
 	<p class="text" align="center"><font color="#fff" size="10px">Избери категория:</font> </p>
 	<form>
 		<div class="category" style="text-align:center">
+		
 			<ul id = "list">
-			<li><a href='game.php?cat=1' class="myButton">Държави</a></li>
-			<li><a href='game.php?cat=2' class="myButton">Градове</a></li>
-			<li><a href='game.php?cat=3' class="myButton">Животни</a></li>
-			<li><a href='game.php?cat=4' class="myButton">Известни личности</a></li>
-			<li><a href='game.php?cat=5' class="myButton">Междузвездни войни</a></li>
+			<li><a href='hangman_bg.php?cat=1' class="myButton">Държави</a></li>
+			<li><a href='hangman_bg.php?cat=2' class="myButton">Градове</a></li>
+			<li><a href='hangman_bg.php?cat=3' class="myButton">Животни</a></li>
+			<li><a href='hangman_bg.php?cat=4' class="myButton">Известни личности</a></li>
+			<li><a href='hangman_bg.php?cat=5' class="myButton">Междузвездни войни</a></li>
 			</ul>
 		</div>		
 	</form>
@@ -137,7 +140,9 @@ if ($language == "en") {
  }
 }
 
-include_once('includes/footer.php');
 ?>
-
+<footer id='foot' style= "top:750px">
+	<p> &copy TheEvilHangman-2017 </p>
+</footer>
+</body>
 	

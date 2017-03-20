@@ -10,8 +10,8 @@ include_once('includes/conection_users.php');
 				<label for='login'> Моля попълнете име на играча  : </label> 
 				<?php	
 				echo "<p><form action='reg_bg.php' method='post'>"; 
-						input('Име ','text','username',' потребителско име...'); 
-						input('Парола ','text','password',' парола'); 
+						input('Име','text','username',' потребителско име...'); 
+						input('Парола','text','password',' парола'); 
 				echo "</p>"; 
 				echo "<p>"; 
 					submit('Регистрирай','btn btn-info'); 
